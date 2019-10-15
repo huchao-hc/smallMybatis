@@ -7,10 +7,10 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">	
 	<!-- 配置数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="${dataSource.url}"></property>
-        <property name="user" value="${dataSource.username}"></property>
-        <property name="password" value="${dataSource.password}"></property>
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+        <property name="jdbcUrl" value="jdbc\:oracle\:thin\:@localhost\:1521\:hu"></property>
+        <property name="user" value="ecuter"></property>
+        <property name="password" value="ecuter"></property>
         <!-- 每60秒检查所有连接池中的空闲连接。Default: 0 -->
         <property name="idleConnectionTestPeriod" value="60" />
         <!-- 初始化时获取三个连接，取值应在minPoolSize与maxPoolSize之间。Default: 3 --> 
@@ -48,6 +48,7 @@
     	<!-- 扫描java bean，自动使用别名 -->
     	<property name="typeAliasesPackage" value="org.imooc.bean"/>
     	<!-- 扫描mybatis的SQL配置文件 -->
+		<property name="mapperLocations" value="classpath:mapper/*.xml"/>
 
     </bean>
     
